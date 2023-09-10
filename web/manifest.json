@@ -9,5 +9,8 @@
         "default_popup": "index.html",
         "default_icon": "icons/Icon-192.png"
     },
+    "permissions": [
+        "bookmarks"
+    ],
     "manifest_version": 3
 }

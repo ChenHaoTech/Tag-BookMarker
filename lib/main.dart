@@ -1,11 +1,28 @@
+import 'package:chrome_extension/alarms.dart';
 import 'package:chrome_extension/bookmarks.dart';
+import 'package:chrome_extension/chrome.dart';
+import 'package:chrome_extension/power.dart';
 import 'package:flutter/material.dart';
 
 import 'qr_view.dart';
 
 List<BookmarkTreeNode> list = [];
-void main() {
-  chrome.bookmarks.getTree().then((value) => list.addAll(value));
+
+main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // Use the chrome.power API
+  // chrome.power.requestKeepAwake(Level.display);
+
+  // Use the chrome.storage API
+  // await chrome.storage.local.set({'mykey': 'value'});
+  // var values = await chrome.storage.local.get(null /* all */);
+  // print(values['mykey']);
+
+  // Use the chrome.alarms API
+//  await chrome.alarms.create('MyAlarm', AlarmCreateInfo(delayInMinutes: 2));
+
+  // await chrome.bookmarks.getRecent(30).then((value) => list.addAll(value));
+  await chrome.bookmarks.getTree().then((value) => list.addAll(value));
   runApp(const MyApp());
 }
 
@@ -39,7 +56,7 @@ class BookMarkView extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: list.map((e) => ListTile(title: Text(e.title))).toList(),
+          children: list.map((e) => ListTile(title: Text("${chrome.bookmarks.get(e.id)}"))).toList(),
         ),
       ),
     );
