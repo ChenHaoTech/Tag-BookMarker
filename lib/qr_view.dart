@@ -37,15 +37,15 @@ class _QRViewState extends State<QRView> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: QrImage(
-                data: qrText,
-                padding: const EdgeInsets.all(16),
-                backgroundColor: qrBackgroundColors[qrBackgroundColorIndex],
-                foregroundColor: qrColors[qrColorIndex],
-              ),
-            ),
+            // ClipRRect(
+            //   borderRadius: BorderRadius.circular(16),
+            //   child: QrImage(
+            //     data: qrText,
+            //     padding: const EdgeInsets.all(16),
+            //     backgroundColor: qrBackgroundColors[qrBackgroundColorIndex],
+            //     foregroundColor: qrColors[qrColorIndex],
+            //   ),
+            // ),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(
